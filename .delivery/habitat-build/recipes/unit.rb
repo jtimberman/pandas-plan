@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: build-cookbook
-# Recipe:: deploy
+# Cookbook Name:: habitat-build
+# Recipe:: unit
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
