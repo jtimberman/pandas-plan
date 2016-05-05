@@ -1,4 +1,4 @@
-# build-cookbook
+# habitat-build
 
 A build cookbook for running the parent project through Chef Delivery
 

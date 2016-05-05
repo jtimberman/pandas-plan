@@ -1,6 +1,6 @@
 # This is an example plan that does nothing, just produces a Habitat Artifact
 # that can be used for testing purposes.
-pkg_origin=delivery
+pkg_origin=build-cookbook
 pkg_name=pandas
 pkg_version=0.0.1
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
