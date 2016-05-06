@@ -6,7 +6,6 @@
   },
   "skip_phases": [
     "unit",
-    "lint",
     "security",
     "smoke",
     "quality",

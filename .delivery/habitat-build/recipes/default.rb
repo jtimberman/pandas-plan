@@ -4,7 +4,7 @@
 #
 execute('apt-get update') { ignore_failure true }
 
-package 'xz-utils'
+package ['xz-utils', 'shellcheck']
 
 # TODO: (jtimberman) Remove these and just use the habitat-client
 # rubygem when we publish that to rubygems.org
