@@ -37,28 +37,19 @@ ruby_block 'build-plan' do
   block do
     Dir.chdir(node['delivery']['workspace']['repo'])
     ENV['TERM'] = 'ansi'
-    studio_path = ::File.join('/hab/pkgs',
-                              hab_studio_pkgident,
-                              'bin/hab-studio')
-    command = "sudo #{studio_path}"
+    command = "sudo #{::File.join('/hab/pkgs', hab_studio_pkgident, 'bin/hab-studio')}"
     command << " -r /hab/studios/#{studio_slug}"
     command << " build #{plan_dir}"
     build = shell_out(command)
     build_output = build.stdout.split("\n")
     artifact = build_output.grep(/Artifact:/).first.split[2]
     installed_path = build_output.grep(/Installed Path:/).first.split[3]
-
-    artifact_pkgident = IO.read(::File.join(::File.join('/hab/studios',
-                                                        studio_slug),
-                                            installed_path,
-                                            'IDENT')).chomp
+    artifact_pkgident = IO.read(::File.join(::File.join('/hab/studios', studio_slug), installed_path, 'IDENT')).chomp
   end
 end
 
 execute 'upload-artifact' do
-  hab_path = ::File.join('/hab/pkgs', hab_pkgident, 'bin/hab')
-  artifact_path = ::File.join('/hab/studios/', studio_slug, artifact)
-  command lazy { "#{hab_path} artifact upload #{artifact_path}" }
+  command lazy { "#{::File.join('/hab/pkgs', hab_pkgident, 'bin/hab')} artifact upload #{::File.join('/hab/studios/', studio_slug, artifact)}" }
 end
 
 ruby_block 'promote-artifact' do
