@@ -2,8 +2,6 @@
 # Cookbook Name:: habitat-build
 # Recipe:: default
 #
-#include_recipe 'delivery_build'
-
 execute('apt-get update') { ignore_failure true }
 
 package 'xz-utils'
@@ -23,11 +21,12 @@ end
 hab_pkgident = node['habitat-build']['hab-pkgident']
 hab_bpm_pkgident = node['habitat-build']['hab-bpm-pkgident']
 hab_studio_pkgident = node['habitat-build']['hab-studio-pkgident']
+file_cache_path = Chef::Config[:file_cache_path]
 
 studio_slug = [
   node['delivery']['change']['project'],
   node['delivery']['change']['stage'],
-  node['delivery']['change']['phase'],
+  node['delivery']['change']['phase']
 ].join('-')
 
 ENV['PATH'] = [
@@ -42,7 +41,7 @@ remote_file "#{Chef::Config[:file_cache_path]}/core-hab-bpm.hart" do
 end
 
 execute 'extract-hab-bpm' do
-  command "tail -n +6 #{Chef::Config[:file_cache_path]}/core-hab-bpm.hart | xzcat | tar xf - -C /"
+  command "tail -n +6 #{file_cache_path}/core-hab-bpm.hart | xzcat | tar xf - -C /"
 end
 
 execute 'install-hab-studio' do
@@ -89,7 +88,7 @@ end
 
 file 'generated-public-key' do
   path lazy { "/hab/studios/#{studio_slug}/hab/cache/keys/#{keyname}.pub" }
-  content lazy { IO.read("/hab/cache/keys/#{keyname}.pub")}
+  content lazy { IO.read("/hab/cache/keys/#{keyname}.pub") }
   sensitive true
   owner 'dbuild'
   mode '0600'
