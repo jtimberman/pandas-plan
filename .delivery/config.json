@@ -1,8 +1,8 @@
 {
   "version": "2",
   "build_cookbook": {
-    "name": "habitat-build",
-    "path": ".delivery/habitat-build"
+    "name": "build-cookbook",
+    "path": ".delivery/build-cookbook"
   },
   "skip_phases": [
     "unit",
