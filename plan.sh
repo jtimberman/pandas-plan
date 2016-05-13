@@ -2,7 +2,7 @@
 # that can be used for testing purposes.
 pkg_origin=delivery
 pkg_name=pandas
-pkg_version=0.0.4
+pkg_version=0.0.5
 pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
 pkg_license=('apache2')
 pkg_source=http://example.com/${pkg_name}-${pkg_version}.tar.xz
