@@ -1,4 +1,4 @@
-This is an example project that has a plan for testing builds. It is primarily concerned with being an example of building plans in Chef Delivery using the `habitat-build` cookbook.
+This is an example project that has a plan for testing builds. It is primarily concerned with being an example of building plans in Chef Automate using the `habitat-build` cookbook.
 
 # Build Cookbook
 
