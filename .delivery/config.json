@@ -11,8 +11,14 @@
     "quality",
     "functional"
   ],
-  "build_nodes": {
-    "default": ["name:builder-ami-2cfe1a1f-3.delivery.chef.co"]
+  "job_dispatch": {
+    "version": "v2",
+    "filters": {
+      "default": {
+        "platform": ["ubuntu"],
+        "platform_version": ["16.04"]
+      }
+    }
   },
   "dependencies": []
 }

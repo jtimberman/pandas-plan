@@ -1,11 +1,13 @@
 # This is an example plan that does nothing, just produces a Habitat Artifact
 # that can be used for testing purposes.
-pkg_origin=delivery
+pkg_origin=jtimberman
 pkg_name=pandas
 pkg_version=0.0.5
-pkg_maintainer="The Habitat Maintainers <humans@habitat.sh>"
-pkg_license=('apache2')
+pkg_description='This plan does nothing, it is for testing purposes.'
+pkg_license=('Apache-2.0')
+pkg_maintainer='Joshua Timberman <joshua@chef.io>'
 pkg_source=http://example.com/${pkg_name}-${pkg_version}.tar.xz
+pkg_upstream_url=http://example.com
 pkg_shasum=sha256sum
 pkg_bin_dirs=(bin)
 pkg_include_dirs=(include)
