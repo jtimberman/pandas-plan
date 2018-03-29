@@ -31,6 +31,8 @@ do_verify() {
 }
 
 do_install() {
+  echo "Testing bananas: $BANANAS"
+  echo "bananas: $BANANAS" >> $pkg_prefix/bananas_$BANANAS
   return 0
 }
 
